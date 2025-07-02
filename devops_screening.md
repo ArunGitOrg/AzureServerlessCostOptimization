@@ -24,5 +24,3 @@ Bonus Points
 Include an architecture diagram illustrating your proposed solution.
 
 Provide pseudocode, commands, or scripts for implementing core logic (such as data archival, retrieval, and cost optimization st rategies).
-
-Please share the solution in a Github repo. If you are using chatGPT or other LLMs to solve please share the conversation.
