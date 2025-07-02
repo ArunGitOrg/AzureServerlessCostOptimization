@@ -1,0 +1,22 @@
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "moveToArchiveTier",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": ["blockBlob"],
+          "prefixMatch": ["billing-archive/"]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 180
+            }
+          }
+        }
+      }
+    }
+  ]
+}

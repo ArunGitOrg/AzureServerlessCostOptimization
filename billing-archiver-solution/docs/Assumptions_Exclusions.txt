@@ -1,0 +1,22 @@
+✅ Assumptions
+| #  | Assumption                                                                                                         |
+| -- | -------------------------------------------------------------------------------------------------------------------|
+| 1  | Cosmos DB already exists and in use. No need to deploy it.                                                         |
+| 2  | Already storing billing records in Cosmos DB.                                                                      |
+| 3  | Billing records are immutable — records are not edited once written.                                               |
+| 4  | Azure CLI is installed and the operator has "Contributor or Owner role" on the subscription.                       |
+| 5  | Azure Function will run under a system-assigned managed identity with scoped RBAC permissions.                     |
+| 6  | Blob Storage is configured with Cool tier default, and a lifecycle policy moves blobs to Archive after 180 days.   |
+| 7  | Solution is deployed in a "single Azure region" for simplicity.                                                    |
+
+
+🚫 Exclusions
+| #  | Not Included                                                                                                       |
+| -- | -------------------------------------------------------------------------------------------------------------------|
+| 1  | No real-time sync between Cosmos DB and Blob — archiving occurs once per day.                                      |
+| 2  | No data rehydration logic from Archive tier to Hot/Hot+Cosmos — this must be manually or optionally scripted.      |
+| 3  | No UI dashboard for archive status or Cosmos cost analytics (can be added via Log Analytics or Azure Monitor).     |
+| 4  | No backup/restore pipeline for Blob or Cosmos — Azure handles storage durability.                                  |
+| 5  | No CI/CD deployment pipeline (by design — kept manual and business-friendly).                                      |
+| 6  | No integration with Azure Data Lake or long-term retention strategies outside Blob tiering.                        |
+| 7  | No custom indexing or schema validation in Blob JSON — stored raw for simplicity.                                  |
