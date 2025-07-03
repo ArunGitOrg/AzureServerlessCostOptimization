@@ -137,3 +137,4 @@ Projected cost savings: **60%–80%** reduction in Cosmos DB storage costs.
 
 ---
 
+## Note: .env file should be in .gitignore.
