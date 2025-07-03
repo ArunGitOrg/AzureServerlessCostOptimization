@@ -8,25 +8,25 @@ set +a
 # Create Resource Group
 az group create --name "$RESOURCE_GROUP" --location "$LOCATION"
 
-# Create Cosmos DB Account
-az cosmosdb create \
-  --name "$COSMOS_ACCOUNT" \
-  --resource-group "$RESOURCE_GROUP" \
-  --locations regionName="$LOCATION" \
-  --default-consistency-level Session
+# # Create Cosmos DB Account            # Uncomment lines related to Cosmos DB if does not already exist
+# az cosmosdb create \
+#   --name "$COSMOS_ACCOUNT" \
+#   --resource-group "$RESOURCE_GROUP" \
+#   --locations regionName="$LOCATION" \
+#   --default-consistency-level Session
 
-# Create Cosmos DB SQL Database & Container
-az cosmosdb sql database create \
-  --account-name "$COSMOS_ACCOUNT" \
-  --resource-group "$RESOURCE_GROUP" \
-  --name "$COSMOS_DB"
+# # Create Cosmos DB SQL Database & Container
+# az cosmosdb sql database create \
+#   --account-name "$COSMOS_ACCOUNT" \
+#   --resource-group "$RESOURCE_GROUP" \
+#   --name "$COSMOS_DB"
 
-az cosmosdb sql container create \
-  --account-name "$COSMOS_ACCOUNT" \
-  --resource-group "$RESOURCE_GROUP" \
-  --database-name "$COSMOS_DB" \
-  --name "$COSMOS_CONTAINER" \
-  --partition-key-path "/recordDate"
+# az cosmosdb sql container create \
+#   --account-name "$COSMOS_ACCOUNT" \
+#   --resource-group "$RESOURCE_GROUP" \
+#   --database-name "$COSMOS_DB" \
+#   --name "$COSMOS_CONTAINER" \
+#   --partition-key-path "/recordDate"
 
 # Create Storage Account
 az storage account create \
